@@ -35,8 +35,8 @@
 */
 
 // The following values will probably need to be changed.
-$db['default']['dsn'] = 'mysql:host=ip-10-0-4-206.eu-west-1.compute.internal;dbname=toolkit';//10.0.4.206
-$db['default']['hostname'] = "ip-10-0-4-206.eu-west-1.compute.internal";
+$db['default']['dsn'] = 'mysql:host=10.0.4.206:22;dbname=toolkit';
+$db['default']['hostname'] = "10.0.4.206:22";
 $db['default']['username'] = "root";
 $db['default']['password'] = "R3@l!s!ngCh!ldr3n2020";
 $db['default']['database'] = "toolkit";
