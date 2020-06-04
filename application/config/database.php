@@ -35,7 +35,7 @@
 */
 
 // The following values will probably need to be changed.
-$db['default']['dsn'] = 'mysql:host=10.0.4.206;dbname=toolkit';
+$db['default']['dsn'] = 'mysql:host=10.0.4.206:3306;dbname=toolkit';
 $db['default']['hostname'] = "3.249.118.6";
 $db['default']['username'] = "nkarisa";
 $db['default']['password'] = "@Compassion123";
