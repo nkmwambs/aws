@@ -40,6 +40,7 @@ $db['default']['hostname'] = "3.249.118.6";
 $db['default']['username'] = "nkarisa";
 $db['default']['password'] = "@Compassion123";
 $db['default']['database'] = "toolkit";
+$db['default']['port'] = 3306;
 
 
 // The following values can probably stay the same.
