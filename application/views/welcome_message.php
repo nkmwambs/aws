@@ -74,7 +74,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>The page you are looking at is being generated dynamically by CodeIgniter!</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
+		<code>
+			<?php 
+				$users = $this->db->select(array('firstname','lastname'))->limit(0,10)->get_where('user')->result_array();
+				print_r($users);
+			?>
+		</code>
 
 		<p>The corresponding controller for this page is found at:</p>
 		<code>application/controllers/Welcome.php</code>
