@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Welcome to CodeIgniter! Your IP is <?=$_SERVER['HTTP_CLIENT_IP'];?></h1>
+	<h1>Welcome to CodeIgniter! Your IP is <?=$_SERVER['REMOTE_ADDR'];?></h1>
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter!</p>
