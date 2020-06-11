@@ -75,8 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to CodeIgniter! Your IP is <?=$_SERVER['REMOTE_ADDR'];?></h1>
 	
 	<div id='body'>
+
 		<div class='row'>
-			<div class='col-xs-12'>
+			<div class='col-xs-4'>
 				<?php echo form_open(base_url().'index.php/welcome/add_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 					<div class='form-group'>
 						<label class='control-label col-xs-2'>Department Name</label>
@@ -91,11 +92,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>
 				</form>
-			</div>	
-		<div>
-		<br/>
-		<div class='row'>
-			<div class='col-xs-6'>
+			</div>
+
+			<div class='col-xs-4'>
 			<h1>Read Database</h1>
 				<?php 
 					$departments = $this->read_db->select(array('name'))->get_where('department')->result_array();
@@ -108,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</ul>
 			</div>
 
-			<div class='col-xs-6'>
+			<div class='col-xs-4'>
 			<h1>Write Database</h1>
 				<?php 
 					$departments = $this->write_db->select(array('name'))->get_where('department')->result_array();
