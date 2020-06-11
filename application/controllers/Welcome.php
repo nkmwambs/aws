@@ -32,4 +32,17 @@ class Welcome extends MY_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	function add_department(){
+		$post = $this->input->post();
+
+		$data['name'] = $post['department_name'];
+		$data['created_by'] = 1;
+		$data['created_date'] = date('Y-m-d');
+		$data['last_modified_by'] = 1;
+
+		$this->write_db->insert('department',$data);
+
+		$this->load->view('welcome_message');
+	}
 }

@@ -73,6 +73,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>Welcome to CodeIgniter! Your IP is <?=$_SERVER['REMOTE_ADDR'];?></h1>
+	
+	<div class='row'>
+		<div class='col-xs-12'>
+			<?php echo form_open(base_url().'index.php?welcome/add_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+				<div class='form-group'>
+					<label class='control-label col-xs-2'>Department Name</label>
+					<div class='col-xs-10'>
+						<input type='text' class='form-control' name='department_name'/>
+					</div>
+				</div>
+			</form>
+		</div>	
+	<div>
+
 	<div class='row'>
 		<div class='col-xs-12'>
 			<?php 
