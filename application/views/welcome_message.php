@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>If you would like to edit this page you'll find it located at:</p>
 		<code>
 			<?php 
-				$departments = $this->db->select(array('name'))->get_where('department')->result_array();
+				$departments = $this->read_db->select(array('name'))->get_where('department')->result_array();
 				print_r($departments);
 			?>
 		</code>
