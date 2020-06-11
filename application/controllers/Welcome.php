@@ -43,6 +43,7 @@ class Welcome extends MY_Controller {
 
 		$this->write_db->insert('department',$data);
 
-		$this->load->view('welcome_message');
+		//$this->load->view('welcome_message');
+		redirect(base_url().'index.php/welcome/index','refresh');
 	}
 }
