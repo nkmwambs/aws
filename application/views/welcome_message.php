@@ -95,7 +95,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>
 		<br/>
 		<div class='row'>
-			<div class='col-xs-12'>
+			<div class='col-xs-6'>
+			<h1>Read Database</h1>
 				<?php 
 					$departments = $this->read_db->select(array('name'))->get_where('department')->result_array();
 				?>
@@ -106,6 +107,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?php }?>
 				</ul>
 			</div>
+
+			<div class='col-xs-6'>
+			<h1>Write Database</h1>
+				<?php 
+					$departments = $this->write_db->select(array('name'))->get_where('department')->result_array();
+				?>
+
+				<ul>
+					<?php foreach($departments as $department){?>
+						<li><?=$department['name'];?></li>
+					<?php }?>
+				</ul>
+			</div>
+
 		</div>
 	</div>
 
