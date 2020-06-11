@@ -64,31 +64,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <div id="container">
 	<h1>Welcome to CodeIgniter! Your IP is <?=$_SERVER['REMOTE_ADDR'];?></h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter!</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>
+	<div class='row'>
+		<div class='col-xs-12'>
 			<?php 
 				$departments = $this->read_db->select(array('name'))->get_where('department')->result_array();
-				print_r($departments);
 			?>
-		</code>
 
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+			<ul>
+				<?php foreach($departments as $department){?>
+					<li><?=$department['name'];?></li>
+				<?php }?>
+			</ul>
+		</div>
 	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
 
 </body>
 </html>
