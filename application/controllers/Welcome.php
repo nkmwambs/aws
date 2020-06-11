@@ -38,7 +38,7 @@ class Welcome extends MY_Controller {
 
 		$data['name'] = $_POST['department_name'];
 		$data['created_by'] = 1;
-		$data['created_date'] = date('Y-m-d');
+		$data['created_date'] = '2020-06-11';
 		$data['last_modified_by'] = 1;
 
 		$this->write_db->insert('department',$data);
