@@ -34,9 +34,9 @@ class Welcome extends MY_Controller {
 	}
 
 	function add_department(){
-		$post = $this->input->post();
+		//$post = $this->input->post();
 
-		$data['name'] = $post['department_name'];
+		$data['name'] = $_POST['department_name'];
 		$data['created_by'] = 1;
 		$data['created_date'] = date('Y-m-d');
 		$data['last_modified_by'] = 1;

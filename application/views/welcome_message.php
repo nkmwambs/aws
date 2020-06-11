@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id='body'>
 		<div class='row'>
 			<div class='col-xs-12'>
-				<?php echo form_open(base_url().'index.php?welcome/add_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+				<?php echo form_open(base_url().'index.php/welcome/add_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 					<div class='form-group'>
 						<label class='control-label col-xs-2'>Department Name</label>
 						<div class='col-xs-10'>
