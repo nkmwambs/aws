@@ -56,7 +56,7 @@ class Welcome extends MY_Controller {
 
 	function update_department($id = 0){
 
-		if(isset($_POST)){
+		if(isset($_POST['department_name'])){
 			$this->write_db->where(array('department_id'=>$id));
 			$data['name'] = $_POST['department_name'];
 			$this->write_db->update('department',$data);
