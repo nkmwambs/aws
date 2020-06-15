@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	#body {
-		margin: 0 15px 0 15px;
+		margin: 0 15px 15px 15px;
 	}
 
 	p.footer {
