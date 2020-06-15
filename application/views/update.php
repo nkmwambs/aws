@@ -79,11 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class='row'>
 			<div class='col-xs-4'>
-				<?php echo form_open(base_url().'index.php/welcome/add_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+				<?php echo form_open(base_url().'index.php/welcome/update_department' , array('id'=>'frm_department','class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 					<div class='form-group'>
 						<label class='control-label col-xs-2'>Department Name</label>
 						<div class='col-xs-10'>
-							<input type='text' class='form-control' name='department_name'/>
+							<input type='text' class='form-control' name='department_name' value='<?=$department_name;?>'/>
 						</div>
 					</div>
 
@@ -95,34 +95,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</form>
 			</div>
 
-			<div class='col-xs-4'>
-			<h1>Read Database</h1>
-				<?php 
-					$departments = $this->read_db->select(array('department_id','name'))->get_where('department')->result_array();
-				?>
-
-				<ul>
-					<?php foreach($departments as $department){?>
-						<li><?=$department['name'];?> <a href='<?=base_url()?>index.php/welcome/delete_department/<?=$department['department_id']?>'><i class='fa fa-trash'></i></a></li>
-					<?php }?>
-				</ul>
-			</div>
-
-			<div class='col-xs-4'>
-			<h1>Write Database</h1>
-				<?php 
-					$departments = $this->write_db->select(array('department_id','name'))->get_where('department')->result_array();
-				?>
-
-				<ul>
-					<?php foreach($departments as $department){?>
-						<li><?=$department['name'];?> 
-							<a href='<?=base_url()?>index.php/welcome/delete_department/<?=$department['department_id']?>'><i class='fa fa-trash'></i></a>
-							<a href='<?=base_url()?>index.php/welcome/update_department/<?=$department['department_id']?>'><i class='fa fa-pencil'></i></a>
-						</li>
-					<?php }?>
-				</ul>
-			</div>
 
 		</div>
 	</div>

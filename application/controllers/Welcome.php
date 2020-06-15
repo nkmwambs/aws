@@ -53,4 +53,20 @@ class Welcome extends MY_Controller {
 
 		redirect(base_url().'index.php/welcome/index','refresh');
 	}
+
+	function update_department($id = 0){
+
+		if(isset($_POST)){
+			$this->write_db->where(array('department_id'=>$id));
+			$data['name'] = $_POST['department_name'];
+			$this->write_db->update('department',$data);
+			redirect(base_url().'index.php/welcome/index','refresh');
+		}else{
+			$data['department_name'] = $this->read_db->get_where('department',array('department_id'=>$id))->row()->name;
+			$this->load->view('update',$data);
+		}
+		
+
+		
+	}
 }
