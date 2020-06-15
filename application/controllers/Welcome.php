@@ -46,4 +46,11 @@ class Welcome extends MY_Controller {
 		//$this->load->view('welcome_message');
 		redirect(base_url().'index.php/welcome/index','refresh');
 	}
+
+	function delete_department($id){
+		$this->write_db->where(array('department_id'=>$id));
+		$this->write_db->delete('department');
+
+		redirect(base_url().'index.php/welcome/index','refresh');
+	}
 }
