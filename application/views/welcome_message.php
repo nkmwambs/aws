@@ -103,7 +103,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<ul>
 					<?php foreach($departments as $department){?>
-						<li><?=$department['name'];?> <a href='<?=base_url()?>index.php/welcome/delete_department/<?=$department['department_id']?>'><i class='fa fa-trash'></i></a></li>
+						<li><?=$department['name'];?> 
+							<a href='<?=base_url()?>index.php/welcome/delete_department/<?=$department['department_id']?>'><i class='fa fa-trash'></i></a>
+							<a href='<?=base_url()?>index.php/welcome/update_department/<?=$department['department_id']?>'><i class='fa fa-pencil'></i></a>
+							</li>
 					<?php }?>
 				</ul>
 			</div>
