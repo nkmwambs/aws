@@ -62,7 +62,9 @@ class Welcome extends MY_Controller {
 			$this->write_db->update('department',$data);
 			redirect(base_url().'index.php/welcome/index','refresh');
 		}else{
-			$data['department_name'] = $this->read_db->get_where('department',array('department_id'=>$id))->row()->name;
+			$department = $this->read_db->get_where('department',array('department_id'=>$id))->row();
+			$data['department_name'] = $department->name;
+			$data['department_id'] = $department->department_id;
 			$this->load->view('update',$data);
 		}
 		
