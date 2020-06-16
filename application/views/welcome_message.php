@@ -131,6 +131,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<?php 
 		var_dump($this->s3->listBuckets());
+		$obj_uri = "https://compassion-international-africa.s3-eu-west-1.amazonaws.com/image1.PNG";
+		$img = $this->s3->getObject('compassion-international-africa',$obj_uri);
 	?>
+	<img src="<?=$img;?>"/>
 </body>
 </html>
