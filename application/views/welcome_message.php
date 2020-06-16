@@ -129,6 +129,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		</div>
 	</div>
-
+	<?php 
+		var_dump($this->s3->listBuckets());
+	?>
 </body>
 </html>

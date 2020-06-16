@@ -23,6 +23,8 @@ class Welcome extends MY_Controller {
  
 	 function __construct(){
 		 parent::__construct();
+		 $this->load->library('session');
+		 $this->load->library('S3');
  
 		 $this->read_db = $this->load->database('read_db',true);
 		 $this->write_db = $this->load->database('write_db',true);
@@ -30,6 +32,7 @@ class Welcome extends MY_Controller {
 
 	public function index()
 	{
+		//$this->session->set_userdata('test_session',rand(10,100));	
 		$this->load->view('welcome_message');
 	}
 
