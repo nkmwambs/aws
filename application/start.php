@@ -9,10 +9,8 @@ $s3Client = new S3Client([
     'version' => 'latest',
     'key'    => $config['s3']['key'],
     'secret' =>$config['s3']['secret'],
-    'key'    => $config['s3']['key'],
-    'secret' =>$config['s3']['secret'],
-    // 'credentials' => [
-    //     'key'    => $config['s3']['key'],
-    //     'secret' =>$config['s3']['secret'],
-    // ],
+    'credentials' => [
+        'key'    => $config['s3']['key'],
+        'secret' =>$config['s3']['secret'],
+    ],
 ]);
