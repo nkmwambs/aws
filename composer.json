@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"aws/aws-sdk-php": "^3.142"
+		"aws/aws-sdk-php": "^3.142",
+		"myclabs/deep-copy": "1.8.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
