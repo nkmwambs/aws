@@ -1,5 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+require 'application/start.php';
+
+
+//Upload Files in Amazon S3
+if(isset($_FILES['file'])){
+	$file=$_FILES['file'];
+
+	//File Details
+	$name=$file['name'];
+	$tmp_name=$file['tmp_name'];
+
+	$extension=explode('.',$name);
+
+	$extension=end($extension);
+
+	//Temp details
+	$key=md5(uniqid());
+	$tmp_file_name="{$key}.{$extension}";
+	$tmp_file_path="application/uploads/{$tmp_file_name}";
+
+	var_dump($tmp_file_path);
+}
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,11 +153,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		</div>
 	</div>
+	<hr>
+
+	
+	<div ><center><h3>LIST OF FILES IN AWS-S3</h3></center></div>
+	<table class='table table-striped'>
+		<thead>
+			<tr>
+				<th>File Name</th>
+				<th>Download Link</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<?php 
+			  foreach($objects as $object){?>
+               <tr>
+				   <td><?=$object['Key'];?></td>
+				   <td><a target='__blank' href='<?=$s3Client->getObjectUrl($config['s3']['bucket'],$object['Key']);?>' download='<?=$object['Key'];?>'>Download</a></td>
+				   
+			   </tr>
+			  <?php } ?>
+		</tbody>
+	</table>
+	<hr>
+	<div class='well' ><center><h3>UPLOAD AREA FOR FILES TO AWS-S3</h3></center></div>
+	<form action='<?=$_SERVER['PHP_SELF'];?>' method="" enctype="multipart/form-data">
+	 <input type='file' name='file'>
+	 <input type='submit' value='Upload'>
+	</form>
+	
 	<?php 
-		var_dump($this->s3->listBuckets());
-		$obj_uri = "s3://compassion-international-africa/image1.PNG";
-		$img = $this->s3->getObject('compassion-international-africa',$obj_uri);
+	   
+		//print_r($this->s3->listBuckets());
+
 	?>
-	<img src="<?=$img;?>"/>
+	<!-- <img src="<?=$img;?>"/> -->
 </body>
 </html>
