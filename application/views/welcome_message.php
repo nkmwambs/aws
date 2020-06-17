@@ -1,4 +1,7 @@
 <?php
+
+use Aws\S3\Exception\S3Exception;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require 'application/start.php';
@@ -14,14 +17,22 @@ if(isset($_FILES['file'])){
 
 	$extension=explode('.',$name);
 
-	$extension=end($extension);
+	$extension=strtolower(end($extension));
 
 	//Temp details
 	$key=md5(uniqid());
 	$tmp_file_name="{$key}.{$extension}";
 	$tmp_file_path="application/uploads/{$tmp_file_name}";
 
-	var_dump($tmp_file_path);
+	//var_dump($tmp_file_path);
+
+	move_uploaded_file($tmp_name,$tmp_file_path);
+
+	// try{
+
+	// }catch(S3Exception s3E){
+
+	// }
 }
 
 ?><!DOCTYPE html>
@@ -178,7 +189,7 @@ if(isset($_FILES['file'])){
 	</table>
 	<hr>
 	<div class='well' ><center><h3>UPLOAD AREA FOR FILES TO AWS-S3</h3></center></div>
-	<form action='<?=$_SERVER['PHP_SELF'];?>' method="" enctype="multipart/form-data">
+	<form action='<?=$_SERVER['PHP_SELF'];?>' method="POST" enctype="multipart/form-data">
 	 <input type='file' name='file'>
 	 <input type='submit' value='Upload'>
 	</form>

@@ -33,9 +33,7 @@ class Welcome extends MY_Controller
 	 */
 	
 	 public $write_db = null;
-	public $read_db = null;
-	public $s3;
-
+	 public $read_db = null;
 	
 
 	function __construct()
@@ -73,24 +71,7 @@ class Welcome extends MY_Controller
 		return $objects;
 
 	}
-	function s3_list_buckets()
-	{
-
-
-		//Create a S3Client 
-		// snippet-start:[s3.php.list_buckets.main]
-		$s3Client = new S3Client([
-			'profile' => 'default',
-			'region' => 'eu-west-1',
-			'version' => 'latest'
-		]);
-
-		//Listing all S3 Bucket
-		$buckets = $s3Client->listBuckets();
-		foreach ($buckets['Buckets'] as $bucket) {
-			echo $bucket['Name'] . "\n";
-		}
-	}
+	
 
 	function add_department()
 	{
