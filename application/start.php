@@ -7,8 +7,12 @@ $config=require('config/s3_config.php');
 $s3Client = new S3Client([
     'region' => 'eu-west-1',
     'version' => 'latest',
-    'credentials' => [
-        'key'    => $config['s3']['key'],
-        'secret' =>$config['s3']['secret'],
-    ],
+    'key'    => $config['s3']['key'],
+    'secret' =>$config['s3']['secret'],
+    'key'    => $config['s3']['key'],
+    'secret' =>$config['s3']['secret'],
+    // 'credentials' => [
+    //     'key'    => $config['s3']['key'],
+    //     'secret' =>$config['s3']['secret'],
+    // ],
 ]);
