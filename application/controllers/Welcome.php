@@ -41,7 +41,7 @@ class Welcome extends MY_Controller
 		parent::__construct();
 
 		$this->load->library('session');
-		$this->load->library('S3');
+		//$this->load->library('S3');
 
 		//$this->load->library('AwsS3');
 
