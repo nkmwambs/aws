@@ -36,6 +36,7 @@ class ComposerStaticInitaa5d4f77fcdb07d2a62f96757306b0c1
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
         ),
         'P' => 
         array (
@@ -94,6 +95,10 @@ class ComposerStaticInitaa5d4f77fcdb07d2a62f96757306b0c1
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -138,6 +143,17 @@ class ComposerStaticInitaa5d4f77fcdb07d2a62f96757306b0c1
             'org\\bovigo\\vfs' => 
             array (
                 0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
+            ),
+        ),
+        'G' => 
+        array (
+            'Guzzle\\Tests' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/tests',
+            ),
+            'Guzzle' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
             ),
         ),
     );
