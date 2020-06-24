@@ -111,4 +111,20 @@ class Welcome extends MY_Controller
 			$this->load->view('update', $data);
 		}
 	}
+
+	function download_file($file_name){
+		try {
+			// Get the object.
+			$result = $s3->getObject([
+				'Bucket' => $config['s3']['bucket'],
+				'Key'    => $file_name
+			]);
+		
+			// Display the object in the browser.
+			header("Content-Type: {$result['ContentType']}");
+			echo $result['Body'];
+		} catch (S3Exception $e) {
+			echo $e->getMessage() . PHP_EOL;
+		}
+	}
 }

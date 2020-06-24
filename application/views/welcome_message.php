@@ -208,8 +208,8 @@ if (isset($_FILES['file'])) {
 				foreach ($objects as $object) { ?>
 					<tr>
 						<td><?= $object['Key']; ?></td>
-						<td><a target='__blank' href='<?= $s3Client->getObjectUrl($config['s3']['bucket'], $object['Key']); ?>' download='<?= $object['Key']; ?>'>Download</a></td>
-
+						<td><a target='__blank' href='<?=base_url();?>index.php/welcome/download_file/<?=$object['Key'];?>' download='<?= $object['Key']; ?>'>Download</a></td>
+						
 					</tr>
 				<?php } ?>
 			</tbody>
