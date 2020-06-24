@@ -115,14 +115,24 @@ class Welcome extends MY_Controller
 	function download_file($file_name){
 		try {
 			// Get the object.
+			// $result = $s3->getObject([
+			// 	'Bucket' => $config['s3']['bucket'],
+			// 	'Key'    => $file_name
+			// ]);
+
 			$result = $s3->getObject([
-				'Bucket' => $config['s3']['bucket'],
-				'Key'    => $file_name
+				'Bucket'                     => $config['s3']['bucket'],
+				'Key'                        => $file_name,
+				'ResponseContentType'        => 'text/plain',
+				'ResponseContentLanguage'    => 'en-US',
+				'ResponseContentDisposition' => 'attachment; filename=testing.txt',
+				'ResponseCacheControl'       => 'No-cache',
+				'ResponseExpires'            => gmdate(DATE_RFC2822, time() + 3600),
 			]);
 		
 			// Display the object in the browser.
-			header("Content-Type: {$result['ContentType']}");
-			echo $result['Body'];
+			// header("Content-Type: {$result['ContentType']}");
+			// echo $result['Body'];
 		} catch (S3Exception $e) {
 			echo $e->getMessage() . PHP_EOL;
 		}

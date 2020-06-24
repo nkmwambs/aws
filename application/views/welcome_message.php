@@ -205,10 +205,19 @@ if (isset($_FILES['file'])) {
 
 			<tbody>
 				<?php
-				foreach ($objects as $object) { ?>
+				foreach ($objects as $object) { 
+					
+					$cmd = $s3Client->getCommand('GetObject', [
+						'Bucket' => $config['s3']['bucket'],
+						'Key' => $object['Key']
+					   ]);
+					   $request = $s3Client->createPresignedRequest($cmd, '+20 minutes');
+					   
+					   $presignedUrl = (string)$request->getUri()
+					?>
 					<tr>
 						<td><?= $object['Key']; ?></td>
-						<td><a target='__blank' href='<?=base_url();?>index.php/welcome/download_file/<?=$object['Key'];?>' download='<?= $object['Key']; ?>'>Download</a></td>
+						<td><a target='__blank' href='<?=$presignedUrl;?>' download='<?= $object['Key']; ?>'>Download</a></td>
 						
 					</tr>
 				<?php } ?>
