@@ -33,10 +33,8 @@ if (isset($_FILES['file'])) {
 		$s3Client->putObject([
 			'Key' => "{$name}",
 			'Bucket' => $config['s3']['bucket'],
-			'ACL' => 'public-read',
+			//'ACL' => 'public-read',
 			'Body' => fopen($tmp_file_path, 'rb')
-
-
 		]);
 		//Remove the temp files after gabbage collection for the S3 guzzlehttp to release resources 
 		
