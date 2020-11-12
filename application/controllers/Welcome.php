@@ -7,6 +7,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 
+use Aws\Iam\IamClient; 
+
+
 require 'application/start.php';
 
 class Welcome extends MY_Controller
@@ -136,5 +139,28 @@ class Welcome extends MY_Controller
 		} catch (S3Exception $e) {
 			echo $e->getMessage() . PHP_EOL;
 		}
+	}
+
+	function aws_client(){
+		$client = new IamClient([
+			'profile' => 'default',
+			'region' => 'us-west-2',
+			'version' => '2010-05-08'
+		]);
+
+		$result = [];
+
+		$userName = 'nkarisa';
+
+		try {
+			$attachedUserPolicies = $client->getIterator('ListAttachedUserPolicies', ([
+				'UserName' => $userName,
+			]));
+		} catch (AwsException $e) {
+			// output error message if fails
+			$result = $e->getMessage();
+		}
+
+		print_r($result);
 	}
 }
